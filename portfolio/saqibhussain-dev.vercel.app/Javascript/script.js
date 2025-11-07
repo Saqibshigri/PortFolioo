@@ -2,7 +2,7 @@ var typed = new Typed(".typing", {
   strings: ["Software Engineer", "Front-End Developer", "React Js Developer"],
   typeSpeed: 90,
   backSpeed: 40,
-  loop: !0,
+  loop: true,
 });
 const dayNight = document.querySelector(".day-night");
 dayNight.addEventListener("click", () => {
