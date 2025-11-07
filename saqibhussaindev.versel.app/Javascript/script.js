@@ -186,7 +186,7 @@ function sendMail() {
     createToast("invalidemail"), document.getElementById("email").focus();
   else {
     const a = {
-      to: "asimshakoor920830@gmail.com",
+      to: "saqibshigri5465@gmail.com",
       subject: `New Contact Form Submission - ${
         document.getElementById("subject").value || "No Subject"
       }`,
@@ -198,7 +198,7 @@ function sendMail() {
         message: document.getElementById("message").value,
         timestamp: new Date().toLocaleString(),
       },
-      from: "asimshakoor920830@gmail.com",
+      from: "saqibshigri5465@gmail.com",
     };
     fetch("https://email-server-one.vercel.app/api/email/send", {
       method: "POST",
@@ -271,7 +271,7 @@ function notifyVisitor() {
     .then((a) => a.json())
     .then((a) => {
       const b = {
-        to: "asimshakoor920830@gmail.com",
+        to: "saqibshigri5465@gmail.com",
         subject: "New Portfolio Visitor Alert",
         template: "visitor_notification",
         templateData: {
@@ -286,7 +286,7 @@ function notifyVisitor() {
           country: a.country_name,
           continent: a.continent_name,
         },
-        from: "asimshakoor920830@gmail.com",
+        from: "saqibshigri5465@gmail.com",
       };
       fetch("https://email-server-one.vercel.app/api/email/send", {
         method: "POST",
