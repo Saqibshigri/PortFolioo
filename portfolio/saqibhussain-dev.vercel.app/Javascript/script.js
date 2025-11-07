@@ -1,6 +1,6 @@
 <script src='https://cdn.jsdelivr.net/npm/typed.js@2.0.12'></script>;
 var typed = new Typed(".typing", {
-  strings: ["Software Engineer", "Front-End Developer", "React Js Developer"],
+  strings: ["","Software Engineer", "Front-End Developer", "React Developer"],
   typeSpeed: 90,
   backSpeed: 40,
   loop: true,
