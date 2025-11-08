@@ -1021,7 +1021,7 @@ data-aos="fade-up"
       document.addEventListener('DOMContentLoaded', function(){
         if (typeof Typed !== 'undefined') {
           new Typed('.typing', {
-            strings: ['React Developer', 'Frontend Engineer', 'Full‑Stack Developer'],
+            strings: ['Software Engineer','React Developer', 'Frontend Developer', ],
             typeSpeed: 60,
             backSpeed: 35,
             backDelay: 1400,
@@ -1029,14 +1029,27 @@ data-aos="fade-up"
           });
         }
 
-        // Simple dark-mode toggle (uses .dark on <html> and localStorage)
+        // Robust dark-mode toggle: toggle BOTH <html> and <body>, persist to localStorage
         const dayNight = document.querySelector('.day-night');
+        const themeIcon = document.getElementById('themesvg');
+
+        function applyTheme(isDark) {
+          document.documentElement.classList.toggle('dark', isDark);
+          document.body.classList.toggle('dark', isDark);
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          if (themeIcon) themeIcon.className = isDark ? 'fa fa-moon' : 'fa fa-sun';
+        }
+
+        // restore stored or follow OS preference
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(stored ? stored === 'dark' : prefersDark);
+
         if (dayNight) {
-          // restore
-          if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
           dayNight.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            const isDarkNow = document.documentElement.classList.contains('dark') || document.body.classList.contains('dark');
+            applyTheme(!isDarkNow);
+            console.log('theme toggled', localStorage.getItem('theme'));
           });
         }
       });
