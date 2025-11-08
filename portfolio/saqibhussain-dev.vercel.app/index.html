@@ -21,10 +21,11 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/skin/color1.css">
 
-    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <!-- AOS  -->
-    <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- fav icon  -->
     <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
@@ -999,7 +1000,7 @@ data-aos="fade-up"
     </div>
 
     <!-- AOS animations -->
-    <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
             offset: 80,
@@ -1008,14 +1009,38 @@ data-aos="fade-up"
             easing: 'ease-in-out',
             anchorPlacement: 'top-bottom'
         });
-
     </script>
 
-    <!-- typed jsquery cdn  -->
-
-    <script src="../cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"
+    <!-- typed js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"
         integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Ensure Typed.js initializes (fallback if not in your script.js) -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        if (typeof Typed !== 'undefined') {
+          new Typed('.typing', {
+            strings: ['React Developer', 'Frontend Engineer', 'Full‑Stack Developer'],
+            typeSpeed: 60,
+            backSpeed: 35,
+            backDelay: 1400,
+            loop: true
+          });
+        }
+
+        // Simple dark-mode toggle (uses .dark on <html> and localStorage)
+        const dayNight = document.querySelector('.day-night');
+        if (dayNight) {
+          // restore
+          if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+          dayNight.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          });
+        }
+      });
+    </script>
 
     <script src="Javascript/jquery.min.js"></script>
 
